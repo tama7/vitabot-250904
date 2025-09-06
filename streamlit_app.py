@@ -231,7 +231,7 @@ st.sidebar.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-openai_api_key = st.sidebar.text_input("🔑 OpenAI API 키를 입력하세요", type="password")
+# openai_api_key = st.sidebar.text_input("🔑 OpenAI API 키를 입력하세요", type="password")
 
 # 사이드바에 비타민 정보 추가
 st.sidebar.markdown("""
@@ -251,10 +251,11 @@ st.sidebar.markdown("""
 - 스트레스 관리
 """)
 
-if not openai_api_key:
-    st.sidebar.warning("OpenAI 키를 입력해주세요.")
-    st.stop()
+#if not openai_api_key:
+#    st.sidebar.warning("OpenAI 키를 입력해주세요.")
+#    st.stop()
 
+openai_api_key = st.secrets['openai']['API_KEY']
 client = OpenAI(api_key=openai_api_key)
 
 # 초기 대화 상태 설정
